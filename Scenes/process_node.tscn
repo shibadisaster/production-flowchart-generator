@@ -1,0 +1,198 @@
+[gd_scene load_steps=12 format=3 uid="uid://c0ltimyydf4w0"]
+
+[ext_resource type="Theme" uid="uid://bx37mpcnvjr1o" path="res://Themes/default_theme.tres" id="1_wqi5k"]
+[ext_resource type="FontFile" uid="uid://blbtv74dk1vxi" path="res://Fonts/Montserrat-ExtraBold.ttf" id="2_0qbfe"]
+[ext_resource type="StyleBox" uid="uid://bd8mq8e87h84h" path="res://Themes/background_stylebox.tres" id="2_66pee"]
+[ext_resource type="Script" path="res://process_node.gd" id="2_ood0b"]
+[ext_resource type="StyleBox" uid="uid://coukggu3eiq0n" path="res://Themes/ingredients_stylebox.tres" id="4_13s8y"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yc4jv"]
+content_margin_bottom = 14.0
+bg_color = Color(1, 0, 0, 0.156863)
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 1)
+expand_margin_left = 15.0
+expand_margin_top = 15.0
+expand_margin_right = 15.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vguf0"]
+content_margin_right = 20.0
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_right = 2
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bu4xb"]
+content_margin_right = 200.0
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rd4k8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dt8nw"]
+content_margin_left = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+expand_margin_right = 10.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w17ds"]
+content_margin_left = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+expand_margin_left = 10.0
+
+[node name="ProcessNode" type="CenterContainer"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 56.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+theme = ExtResource("1_wqi5k")
+use_top_left = true
+script = ExtResource("2_ood0b")
+
+[node name="Background" type="PanelContainer" parent="."]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("2_66pee")
+
+[node name="MarginContainer" type="MarginContainer" parent="Background"]
+layout_mode = 2
+theme_override_constants/margin_left = 14
+theme_override_constants/margin_top = 14
+theme_override_constants/margin_right = 14
+theme_override_constants/margin_bottom = 14
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Background/MarginContainer"]
+layout_mode = 2
+
+[node name="TitleSeparator" type="PanelContainer" parent="Background/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_yc4jv")
+
+[node name="Title" type="CenterContainer" parent="Background/MarginContainer/VBoxContainer/TitleSeparator"]
+layout_mode = 2
+
+[node name="TitleSpread" type="HBoxContainer" parent="Background/MarginContainer/VBoxContainer/TitleSeparator/Title"]
+layout_mode = 2
+
+[node name="MachineTypeContainer" type="PanelContainer" parent="Background/MarginContainer/VBoxContainer/TitleSeparator/Title/TitleSpread"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_vguf0")
+
+[node name="MachineTypeLabel" type="Label" parent="Background/MarginContainer/VBoxContainer/TitleSeparator/Title/TitleSpread/MachineTypeContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_0qbfe")
+text = "Chemical Reactor"
+
+[node name="MachineNumberContainer" type="PanelContainer" parent="Background/MarginContainer/VBoxContainer/TitleSeparator/Title/TitleSpread"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_bu4xb")
+
+[node name="MachineNumberLabel" type="Label" parent="Background/MarginContainer/VBoxContainer/TitleSeparator/Title/TitleSpread/MachineNumberContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_0qbfe")
+text = "1.00x"
+
+[node name="MachineEnergyUsageContainer" type="PanelContainer" parent="Background/MarginContainer/VBoxContainer/TitleSeparator/Title/TitleSpread"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_rd4k8")
+
+[node name="MachineEnergyUsageLabel" type="Label" parent="Background/MarginContainer/VBoxContainer/TitleSeparator/Title/TitleSpread/MachineEnergyUsageContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_0qbfe")
+text = "30 EU/s"
+
+[node name="Ingredients" type="VBoxContainer" parent="Background/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="StartSpacer" type="PanelContainer" parent="Background/MarginContainer/VBoxContainer/Ingredients"]
+layout_mode = 2
+
+[node name="ResourceRow" type="PanelContainer" parent="Background/MarginContainer/VBoxContainer/Ingredients"]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("4_13s8y")
+
+[node name="ResourceName" type="Label" parent="Background/MarginContainer/VBoxContainer/Ingredients/ResourceRow"]
+layout_mode = 2
+text = "Hydrogen Gas"
+
+[node name="ResourceAmount" type="Label" parent="Background/MarginContainer/VBoxContainer/Ingredients/ResourceRow"]
+layout_mode = 2
+text = "-600.0 L/s (1000L)"
+horizontal_alignment = 2
+
+[node name="ResourceRow2" type="PanelContainer" parent="Background/MarginContainer/VBoxContainer/Ingredients"]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("4_13s8y")
+
+[node name="ResourceName" type="Label" parent="Background/MarginContainer/VBoxContainer/Ingredients/ResourceRow2"]
+layout_mode = 2
+text = "Chlorine Cell"
+
+[node name="ResourceAmount" type="Label" parent="Background/MarginContainer/VBoxContainer/Ingredients/ResourceRow2"]
+layout_mode = 2
+text = "-0.6/s (1)"
+horizontal_alignment = 2
+
+[node name="IngredientProductSeparator" type="HBoxContainer" parent="Background/MarginContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="SeparatorLeft" type="PanelContainer" parent="Background/MarginContainer/VBoxContainer/IngredientProductSeparator"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_dt8nw")
+
+[node name="Arrows" type="Label" parent="Background/MarginContainer/VBoxContainer/IngredientProductSeparator"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "↓↓↓"
+
+[node name="SeparatorRight" type="PanelContainer" parent="Background/MarginContainer/VBoxContainer/IngredientProductSeparator"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_w17ds")
+
+[node name="Products" type="VBoxContainer" parent="Background/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="StartSpacer" type="PanelContainer" parent="Background/MarginContainer/VBoxContainer/Products"]
+layout_mode = 2
+
+[node name="ResourceRow" type="PanelContainer" parent="Background/MarginContainer/VBoxContainer/Products"]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("4_13s8y")
+
+[node name="ResourceName" type="Label" parent="Background/MarginContainer/VBoxContainer/Products/ResourceRow"]
+layout_mode = 2
+text = "Hydrochloric Acid"
+
+[node name="ResourceAmount" type="Label" parent="Background/MarginContainer/VBoxContainer/Products/ResourceRow"]
+layout_mode = 2
+text = "+600.0 L/s (1000L)"
+horizontal_alignment = 2
+
+[node name="ResourceRow2" type="PanelContainer" parent="Background/MarginContainer/VBoxContainer/Products"]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("4_13s8y")
+
+[node name="ResourceName" type="Label" parent="Background/MarginContainer/VBoxContainer/Products/ResourceRow2"]
+layout_mode = 2
+text = "Empty Cell"
+
+[node name="ResourceAmount" type="Label" parent="Background/MarginContainer/VBoxContainer/Products/ResourceRow2"]
+layout_mode = 2
+text = "+0.6/s (1)"
+horizontal_alignment = 2

@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://crlxwudrmullw"]
+
+[ext_resource type="PackedScene" uid="uid://c1vn28xiamt34" path="res://Scenes/process_node_connector.tscn" id="1_vr71h"]
+[ext_resource type="PackedScene" uid="uid://c0ltimyydf4w0" path="res://Scenes/process_node.tscn" id="2_02hbn"]
+[ext_resource type="Script" path="res://camera.gd" id="3_6e6fy"]
+[ext_resource type="PackedScene" uid="uid://cmshtegnqhax6" path="res://Scenes/background.tscn" id="3_kol6x"]
+
+[node name="Main" type="Node2D"]
+
+[node name="Node2D" parent="." instance=ExtResource("1_vr71h")]
+
+[node name="CenterContainer" parent="." instance=ExtResource("2_02hbn")]
+anchors_preset = 0
+anchor_right = 0.0
+offset_left = -103.0
+offset_top = 66.0
+offset_right = -103.0
+offset_bottom = 122.0
+grow_horizontal = 1
+
+[node name="Camera" type="Camera2D" parent="."]
+zoom = Vector2(0.5, 0.5)
+position_smoothing_enabled = true
+script = ExtResource("3_6e6fy")
+
+[node name="Background" parent="." instance=ExtResource("3_kol6x")]

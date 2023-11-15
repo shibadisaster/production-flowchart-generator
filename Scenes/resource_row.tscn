@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://esmodsqignbj"]
+
+[ext_resource type="StyleBox" uid="uid://coukggu3eiq0n" path="res://Themes/ingredients_stylebox.tres" id="1_t7x38"]
+
+[node name="ResourceRow" type="PanelContainer"]
+theme_override_styles/panel = ExtResource("1_t7x38")
+
+[node name="ResourceName" type="Label" parent="."]
+layout_mode = 2
+text = "ResourceName"
+
+[node name="ResourceAmount" type="Label" parent="."]
+layout_mode = 2
+text = "+-ResAmnt"
+horizontal_alignment = 2

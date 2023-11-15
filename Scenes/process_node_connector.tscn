@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://c1vn28xiamt34"]
+
+[node name="ProcessNodeConnector" type="Node2D"]
+
+[node name="Line" type="Line2D" parent="."]
+points = PackedVector2Array(171, 137, 437, 172, 724, 209)
+default_color = Color(1, 0, 0, 0.25098)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2

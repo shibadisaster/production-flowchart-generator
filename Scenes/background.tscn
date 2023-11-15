@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://cmshtegnqhax6"]
+
+[ext_resource type="Shader" path="res://Scenes/background.gdshader" id="1_5mrec"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_voebb"]
+shader = ExtResource("1_5mrec")
+shader_parameter/scroll_speed = Vector2(0.005, 0.005)
+shader_parameter/col1 = Vector4(0.1, 0.1, 0.1, 1)
+shader_parameter/col2 = Vector4(0.12, 0.12, 0.12, 1)
+shader_parameter/wave_frequency = 800.0
+
+[sub_resource type="Gradient" id="Gradient_2l8tl"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ixedl"]
+gradient = SubResource("Gradient_2l8tl")
+width = 3840
+height = 3840
+
+[node name="Background" type="CanvasLayer" groups=["Background"]]
+layer = -1
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_voebb")
+texture = SubResource("GradientTexture2D_ixedl")
